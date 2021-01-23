@@ -26,7 +26,7 @@ new Vue({
           },
         attackMonster(){
             //generate a random attack damage
-            let damage = this.rand(1, 10);
+            let damage = this.rand(1,10 );
 
             //decrease monster health
             if((this.monsterHealth - damage) > 0){
@@ -45,15 +45,16 @@ new Vue({
             this.logAction("attack", "player", damage)
 
             //make monster attack me with a greater random value
-            this.recieveDamage(3, 10);
+            this.recieveDamage(6, 10);
         },
         specialAttackMonster(){
             //generate a random damage and increase it 
             //in case the player hasn't used a special 
             //attacks for 2 times
 
-            let damage = (this.attackCount == 8) ? this.rand(3, 10):
-             this.rand(1, 5);
+            let damage = (this.attackCount == 8) 
+            ? this.rand(8, 10):
+             this.rand(6,9);
              
 
             //decrease monester health
