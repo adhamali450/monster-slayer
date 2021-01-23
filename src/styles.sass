@@ -1,0 +1,168 @@
+$pink: #C83B50
+    
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: 'VT323', monospace
+
+body
+    font-size: 18px
+
+#app
+    header
+        @extend .center-flex
+        align-items: flex-end
+        gap: 10px
+        background-color: $pink
+        text-align: center
+        padding: 1rem 0
+        color: #fff
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2)
+    main
+        margin-top: 2rem
+        @extend .center-flex
+        flex-direction: column
+        gap: 3rem
+        .health-bars-container
+            @extend .center-flex
+            gap: 5rem
+            .health-bar-container
+                span
+                    font-size: 130%
+                    color: #3d3d3d  
+                .health-bar
+                    width: 250px
+                    height: 25px
+                    border-radius: 5px
+                    background-color: #999
+                    span
+                        display: block
+                        height: 100%
+                        transition: width 100ms ease-in
+                        border-radius: inherit
+                        background-color: #05D784
+                        
+        .action-center
+            .new-game,
+            .in-game
+                @extend .center-flex
+                gap: 1rem
+        .game-log-container
+            text-align: center
+            border: 1px solid #DFDFDF
+            h2
+                padding: 0.5rem 0
+                background-color: #F7F7F7
+                border-bottom: 1px solid #DFDFDF
+            .game-log
+                height: 150px
+                max-height: 150px
+                overflow: auto
+                .log
+                    padding: 5px 0
+            .game-stats
+                @extend .center-flex
+                background-color: #F7F7F7
+                gap: 2rem
+                border-top: 1px solid #DFDFDF
+                padding: 1rem 2rem
+                span
+                    padding: 5px 10px
+                    border-radius: 5px
+            .yellow
+                color: #856404
+                background-color: #FFF3CD
+            .green
+                color: #155724
+                background-color: #D4EDDA
+            .red     
+                color: #721c24
+                background-color: #f8d7da
+            .blue
+                color: #004085
+                background-color: #cce5ff
+
+
+
+button
+    border: none
+    outline: none
+    cursor: pointer
+    padding: 5px
+    border-radius: 20%
+    background-color: #F0F0F0
+    transition: background-color 100ms ease-in
+    &:hover
+        background-color: #d6d6d6
+    &:active
+        background-color: $pink  
+    &:disabled
+        cursor: default
+        background-color: transparent
+
+
+button[data-tooltip]
+    position: relative
+    &::before  
+        content: ''
+        position: absolute 
+        border-top: 0.8em solid $pink 
+        border-left: 0.8em solid transparent 
+        border-right: 0.8em solid transparent 
+        display: none 
+        top: -1em
+        left: 1.5em 
+    &::after  
+        content: attr(data-tooltip) 
+        position: absolute 
+        top: -2.2em 
+        left: -0.7em 
+        background: $pink
+        color: #fff
+        font-size: 150%
+        padding: 5px 15px 
+        border-radius: 10px 
+        white-space: nowrap 
+        display: none 
+    &[data-tooltip]:hover::before, &[data-tooltip]:hover::after 
+        display: inline
+    &:disabled
+        &:hover
+            &::after,
+            &::before  
+                display: none
+
+.center-flex
+    display: flex
+    justify-content: center
+    align-content: center
+    flex-wrap: wrap
+
+.img-btn
+    width: 58px
+    height: 58px
+
+.img-player
+    width: 80px
+    height: 80px
+
+h1
+    font-size: 300%
+
+h2
+    font-size: 200%
+    color: $pink
+
+
+span
+    display: block
+
+small
+    font-size: 110%
+    font-weight: lighter
+    font-style: italic
+    background-color: darken($pink, 10%)
+    color: #ffffff
+    padding: 0 5px
+    

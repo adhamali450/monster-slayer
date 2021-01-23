@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'VT323', monospace;
+}
+
+body {
+  font-size: 18px;
+}
+
+#app header {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  gap: 10px;
+  background-color: #C83B50;
+  text-align: center;
+  padding: 1rem 0;
+  color: #fff;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#app main {
+  margin-top: 2rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3rem;
+}
+
+#app main .health-bars-container {
+  gap: 5rem;
+}
+
+#app main .health-bars-container .health-bar-container span {
+  font-size: 130%;
+  color: #3d3d3d;
+}
+
+#app main .health-bars-container .health-bar-container .health-bar {
+  width: 250px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: #999;
+}
+
+#app main .health-bars-container .health-bar-container .health-bar span {
+  display: block;
+  height: 100%;
+  -webkit-transition: width 100ms ease-in;
+  transition: width 100ms ease-in;
+  border-radius: inherit;
+  background-color: #05D784;
+}
+
+#app main .action-center .new-game,
+#app main .action-center .in-game {
+  gap: 1rem;
+}
+
+#app main .game-log-container {
+  text-align: center;
+  border: 1px solid #DFDFDF;
+}
+
+#app main .game-log-container h2 {
+  padding: 0.5rem 0;
+  background-color: #F7F7F7;
+  border-bottom: 1px solid #DFDFDF;
+}
+
+#app main .game-log-container .game-log {
+  height: 150px;
+  max-height: 150px;
+  overflow: auto;
+}
+
+#app main .game-log-container .game-log .log {
+  padding: 5px 0;
+}
+
+#app main .game-log-container .game-stats {
+  background-color: #F7F7F7;
+  gap: 2rem;
+  border-top: 1px solid #DFDFDF;
+  padding: 1rem 2rem;
+}
+
+#app main .game-log-container .game-stats span {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+#app main .game-log-container .yellow {
+  color: #856404;
+  background-color: #FFF3CD;
+}
+
+#app main .game-log-container .green {
+  color: #155724;
+  background-color: #D4EDDA;
+}
+
+#app main .game-log-container .red {
+  color: #721c24;
+  background-color: #f8d7da;
+}
+
+#app main .game-log-container .blue {
+  color: #004085;
+  background-color: #cce5ff;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 20%;
+  background-color: #F0F0F0;
+  -webkit-transition: background-color 100ms ease-in;
+  transition: background-color 100ms ease-in;
+}
+
+button:hover {
+  background-color: #d6d6d6;
+}
+
+button:active {
+  background-color: #C83B50;
+}
+
+button:disabled {
+  cursor: default;
+  background-color: transparent;
+}
+
+button[data-tooltip] {
+  position: relative;
+}
+
+button[data-tooltip]::before {
+  content: '';
+  position: absolute;
+  border-top: 0.8em solid #C83B50;
+  border-left: 0.8em solid transparent;
+  border-right: 0.8em solid transparent;
+  display: none;
+  top: -1em;
+  left: 1.5em;
+}
+
+button[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -2.2em;
+  left: -0.7em;
+  background: #C83B50;
+  color: #fff;
+  font-size: 150%;
+  padding: 5px 15px;
+  border-radius: 10px;
+  white-space: nowrap;
+  display: none;
+}
+
+button[data-tooltip][data-tooltip]:hover::before, button[data-tooltip][data-tooltip]:hover::after {
+  display: inline;
+}
+
+button[data-tooltip]:disabled:hover::after, button[data-tooltip]:disabled:hover::before {
+  display: none;
+}
+
+.center-flex, #app header, #app main, #app main .health-bars-container, #app main .action-center .new-game,
+#app main .action-center .in-game, #app main .game-log-container .game-stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.img-btn {
+  width: 58px;
+  height: 58px;
+}
+
+.img-player {
+  width: 80px;
+  height: 80px;
+}
+
+h1 {
+  font-size: 300%;
+}
+
+h2 {
+  font-size: 200%;
+  color: #C83B50;
+}
+
+span {
+  display: block;
+}
+
+small {
+  font-size: 110%;
+  font-weight: lighter;
+  font-style: italic;
+  background-color: #a22e3f;
+  color: #ffffff;
+  padding: 0 5px;
+}
