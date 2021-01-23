@@ -38,21 +38,21 @@
             </div>
             <div class="action-center">
                 <div class="new-game" v-if="(!showInGameActionCenter) || anyHealthZeroed">
-                    <button data-tooltip="New game"  @click="startNewGame"> 
+                    <button  @click="startNewGame"> 
                         <img class="img-btn" src="https://img.icons8.com/fluent/58/000000/new.png"/>
                     </button>
                 </div>
                 <div class="in-game" v-else>
-                    <button data-tooltip="Attack" @click="attackMonster">
+                    <button @click="attackMonster">
                         <img class="img-btn" src="https://img.icons8.com/fluent/58/000000/sword.png"/>
                     </button>
-                    <button data-tooltip="Special Attack" :disabled="attackCount < 4"  @click="specialAttackMonster">
+                    <button :disabled="attackCount < 4"  @click="specialAttackMonster">
                         <img class="img-btn" src="https://img.icons8.com/fluent/58/000000/air-raider.png"/>
                     </button>
-                    <button data-tooltip="Heal" :disabled="selfHealth > 50 || healCount < 1"  @click="healSelf">
+                    <button :disabled="selfHealth > 50 || healCount < 1"  @click="healSelf">
                         <img class="img-btn" src="https://img.icons8.com/fluent/58/000000/pill.png"/>
                     </button>
-                    <button data-tooltip="surrender" @click="surrender">
+                    <button @click="surrender">
                         <img class="img-btn" src="https://img.icons8.com/fluent/58/000000/delete-sign.png"/>
                     </button>
                 </div>

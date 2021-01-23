@@ -139,43 +139,6 @@ button:disabled {
   background-color: transparent;
 }
 
-button[data-tooltip] {
-  position: relative;
-}
-
-button[data-tooltip]::before {
-  content: '';
-  position: absolute;
-  border-top: 0.8em solid #C83B50;
-  border-left: 0.8em solid transparent;
-  border-right: 0.8em solid transparent;
-  display: none;
-  top: -1em;
-  left: 1.5em;
-}
-
-button[data-tooltip]::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  top: -2.2em;
-  left: -0.7em;
-  background: #C83B50;
-  color: #fff;
-  font-size: 150%;
-  padding: 5px 15px;
-  border-radius: 10px;
-  white-space: nowrap;
-  display: none;
-}
-
-button[data-tooltip][data-tooltip]:hover::before, button[data-tooltip][data-tooltip]:hover::after {
-  display: inline;
-}
-
-button[data-tooltip]:disabled:hover::after, button[data-tooltip]:disabled:hover::before {
-  display: none;
-}
-
 .center-flex, #app header, #app main, #app main .health-bars-container, #app main .action-center .new-game,
 #app main .action-center .in-game, #app main .game-log-container .game-stats {
   display: -webkit-box;

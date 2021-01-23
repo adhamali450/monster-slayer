@@ -101,38 +101,6 @@ button
         cursor: default
         background-color: transparent
 
-
-button[data-tooltip]
-    position: relative
-    &::before  
-        content: ''
-        position: absolute 
-        border-top: 0.8em solid $pink 
-        border-left: 0.8em solid transparent 
-        border-right: 0.8em solid transparent 
-        display: none 
-        top: -1em
-        left: 1.5em 
-    &::after  
-        content: attr(data-tooltip) 
-        position: absolute 
-        top: -2.2em 
-        left: -0.7em 
-        background: $pink
-        color: #fff
-        font-size: 150%
-        padding: 5px 15px 
-        border-radius: 10px 
-        white-space: nowrap 
-        display: none 
-    &[data-tooltip]:hover::before, &[data-tooltip]:hover::after 
-        display: inline
-    &:disabled
-        &:hover
-            &::after,
-            &::before  
-                display: none
-
 .center-flex
     display: flex
     justify-content: center
