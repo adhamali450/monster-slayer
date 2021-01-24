@@ -82,6 +82,8 @@ new Vue({
             //decrease heal count
             this.healCount-=1;
 
+            damageTaken -= heal;
+
             //log to the states
             this.logAction("heal", "Player",  heal);
         },
