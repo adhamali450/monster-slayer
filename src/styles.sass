@@ -4,57 +4,92 @@ $pink: #C83B50
     margin: 0
     padding: 0
     box-sizing: border-box
-    font-family: 'VT323', monospace
+
+    letter-spacing: 1px
+    word-spacing: 2px
+
+html
+    height: 100vh
 
 body
+    height: inherit
+
     font-size: 18px
+    font-family: 'Bangers', cursive
+    color: #3d3d3d
 
 #app
+    height: inherit
+    display: flex
+    flex-direction: column
     header
-        @extend .center-flex
-        align-items: flex-end
+        @extend .flex-center
+        align-items: flex-end !important
         gap: 10px
         background-color: $pink
         text-align: center
-        padding: 1rem 0
+        padding: 1rem
         color: #fff
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2)
+        h1
+            letter-spacing: 3px
+            sub
+                font-size: 35%
+                background-color: darken(#05D784, 10%)
+                color: #ffffff
+                padding: 0 5px
+                letter-spacing: 2.5px
     main
-        margin-top: 2rem
-        @extend .center-flex
+        flex-grow: 1
+        @extend .flex-center
         flex-direction: column
         gap: 3rem
+        margin-top: 2rem
+
+        #img-versus
+            width: 70px
         .health-bars-container
-            @extend .center-flex
-            gap: 5rem
+            @extend .flex-center
+            grid-column-gap: 5rem
+            grid-row-gap: 2rem
             .health-bar-container
+                display: grid
+                grid-template-rows: auto 1fr
+                grid-template-columns: auto 1fr
+                grid-row-gap: 0.75rem
                 span
+                    width: min-content
+                    height: min-content
+                    align-self: self-end
+                    justify-self: self-end
                     font-size: 130%
-                    color: #3d3d3d
                 .health-bar
+                    grid-row: 2/3
+                    grid-column: 1/3
+
                     width: 250px
-                    height: 25px
-                    border-radius: 5px
+                    height: 15px
                     background-color: #999
                     span
                         display: block
                         height: 100%
                         transition: width 100ms ease-in
-                        border-radius: inherit
-                        background-color: #05D784
 
         .action-center
             .new-game,
             .in-game
-                @extend .center-flex
+                @extend .flex-center
                 gap: 1rem
         .game-log-container
             text-align: center
             border: 1px solid #DFDFDF
-            h2
+            .header
                 padding: 0.5rem 0
                 background-color: #F7F7F7
                 border-bottom: 1px solid #DFDFDF
+                color: darken(#DFDFDF, 50%)
+                h2
+                    letter-spacing: 3px
             .game-log
                 height: 150px
                 max-height: 150px
@@ -62,14 +97,14 @@ body
                 .log
                     padding: 5px 0
             .game-stats
-                @extend .center-flex
+                @extend .flex-center
                 background-color: #F7F7F7
-                gap: 2rem
+                gap: 0.5rem
                 border-top: 1px solid #DFDFDF
                 padding: 1rem 2rem
                 span
+                    flex-grow: 1
                     padding: 5px 10px
-                    border-radius: 5px
             .yellow
                 color: #856404
                 background-color: #FFF3CD
@@ -83,26 +118,49 @@ body
                 color: #004085
                 background-color: #cce5ff
 
+footer
+    @extend .flex-center
+
+    background-color: #DFDFDF
+
+    margin-top: 1rem
+    padding: 1rem
+
+    font-family: sans-serif
+    letter-spacing: normal
+    word-spacing: normal
+    font-size: 90%
+
 button
     border: none
     outline: none
     cursor: pointer
+    padding: 10px 20px
+    font-size: 32px
+    font-family: inherit
+    background-color: $pink
+    box-shadow: 4px 4px 0px darken($pink, 20%)
+    border: 2px solid darken($pink, 20%)
+    color: #fff
+    img
+        width: 58px
+
+.action-btn
     padding: 5px
-    border-radius: 20%
     background-color: #F0F0F0
-    transition: background-color 100ms ease-in
-    &:hover
-        background-color: #d6d6d6
     &:active
         background-color: #c7c7c7
     &:disabled
-        cursor: default
+        cursor: not-allowed
+        box-shadow: none
+        border-color: transparent
+        opacity: 0.5
         background-color: transparent
 
-.center-flex
+.flex-center
     display: flex
     justify-content: center
-    align-content: center
+    align-items: center
     flex-wrap: wrap
 
 .img-btn
@@ -118,7 +176,6 @@ h1
 
 h2
     font-size: 200%
-    color: $pink
 
 span
     display: block
@@ -127,6 +184,6 @@ small
     font-size: 110%
     font-weight: lighter
     font-style: italic
-    background-color: darken($pink, 10%)
+    background-color: darken(#05D784, 10%)
     color: #ffffff
     padding: 0 5px

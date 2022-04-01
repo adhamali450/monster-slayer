@@ -1,3 +1,5 @@
+const healthBarBg = (barValue) => 
+    barValue > 70 ? '#05D784' : (barValue > 40 ? '#F8C301': '#BF0100')
 new Vue({
     el: '#app',
     data: {
@@ -89,9 +91,12 @@ new Vue({
             this.logAction("heal", "Player",  heal);
         },
         surrender(){
-            //reset values to default
-            this.resetValues();
-            this.showInGameActionCenter = false;
+            const willSurrender = window.confirm("Are you sure you want to surrender?")
+            if(willSurrender){
+                //reset values to default
+                this.resetValues();
+                this.showInGameActionCenter = false;
+            }
         },
         recieveDamage(min, max){
             //get a random damage
@@ -131,6 +136,20 @@ new Vue({
         }
     },
     computed: {
+        styleSelfHealthBar: function(){
+            return {
+                width: this.selfHealth + '%',
+                backgroundColor: healthBarBg(this.selfHealth)
+            }
+        },
+
+        styleMonsterHealthBar: function(){
+            return {
+                width: this.monsterHealth + '%',
+                backgroundColor: healthBarBg(this.monsterHealth)
+            }
+        },
+
         healsUsed: function(){
             return 3 - this.healCount;
         },
@@ -140,3 +159,4 @@ new Vue({
         }, 
       },
 });
+

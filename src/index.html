@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
-      rel="stylesheet"
-    />
-
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <title>Monster Slayer | A Vue.js tutorial</title>
   </head>
   <body>
     <div id="app">
-      <header class="center-flex">
-        <h1>Monster Slayer</h1>
-        <small>A Vue.js tutorial</small>
+      <header>
+        <h1>
+          Monster Slayer
+        </h1>
+        <small>Vue.js tutorial</small>
       </header>
       <main>
         <div class="health-bars-container">
@@ -25,14 +26,15 @@
             <img class="img-player" src="assets/me.svg" />
             <span class="health">{{selfHealth}}\100</span>
             <div class="health-bar">
-              <span :style="{width : selfHealth + '%'}"></span>
+              <span :style="styleSelfHealthBar"></span>
             </div>
           </div>
+          <img id="img-versus" src="assets/versus.svg" alt="versus">
           <div class="health-bar-container">
             <img class="img-player" src="assets/monster.svg" />
             <span class="health">{{monsterHealth}}\100</span>
             <div class="health-bar">
-              <span :style="{width : monsterHealth + '%'}"></span>
+              <span :style="styleMonsterHealthBar"></span>
             </div>
           </div>
         </div>
@@ -41,30 +43,41 @@
             class="new-game"
             v-if="(!showInGameActionCenter) || anyHealthZeroed"
           >
-            <button @click="startNewGame">
-              <img class="img-btn" src="assets/new.svg" />
+            <button class="flex-center" 
+                @click="startNewGame">
+              <img src="assets/attack.svg" alt="">
+              new game
             </button>
           </div>
           <div class="in-game" v-else>
-            <button @click="attackMonster">
+            <button class="action-btn" 
+                @click="attackMonster">
               <img class="img-btn" src="assets//attack.svg" />
             </button>
-            <button :disabled="attackCount < 4" @click="specialAttackMonster">
+            <button class="action-btn" 
+                :disabled="attackCount < 4" 
+                @click="specialAttackMonster">
               <img class="img-btn" src="assets//special-attack.svg" />
             </button>
-            <button
+            <button class="action-btn" 
               :disabled="selfHealth > 50 || healCount < 1"
               @click="healSelf"
             >
               <img class="img-btn" src="assets/heal.svg" />
             </button>
-            <button @click="surrender">
+
+            <button class="action-btn" 
+                @click="surrender">
               <img class="img-btn" src="assets/exit.svg" />
             </button>
           </div>
         </div>
         <div class="game-log-container">
-          <h2>Game log</h2>
+          
+          <div class="header flex-center">
+            
+            <h2>Game log</h2>
+          </div>
           <div class="game-log">
             <ul>
               <li v-for="log in gameLog">
@@ -99,8 +112,10 @@
           </div>
         </div>
       </main>
+      <footer>
+        <a href="https://adhamali.tech" target="_blank">Adham Ali</a>, © 2020
+      </footer>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="app.js"></script>
   </body>
